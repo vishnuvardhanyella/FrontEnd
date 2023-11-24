@@ -5,21 +5,23 @@
     align-items: center;
     padding: 20px;
     margin-top: 20px;
-    padding-bottom: 80px; /* Adjust this value based on your header and floating navbar height */
+    padding-bottom: 80px; /* Adjust this value based on your .sentence and floating navbar height */
   }
   
-  /* Header Styles */
-  header {
+  /* .sentence Styles */
+  .sentence {
     text-align: center;
     margin-bottom: 20px;
   }
   
-  header h1 {
+  .sentence h1 {
     color: #007bff;
+    font-size: 28px;
   }
   
-  header p {
+  .sentence p {
     color: #333;
+    font-size: 16px;
   }
   
   /* Search section Styles */
@@ -31,30 +33,35 @@
     margin-bottom: 20px;
   }
   
-  .search-section input {
+  /* Search bar container Styles */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* Search input Styles */
+  .react-autosuggest__input {
+    width: calc(100% - 40px); /* Adjust for icon width and margin */
     padding: 12px;
-    margin-right: 10px;
     border: 2px solid #007bff;
     border-radius: 25px;
     outline: none;
     font-size: 16px;
-    width: 100%; /* Adjusted width to 100% */
   }
   
-  /* Removed the Search button styles */
+  /* Search icon Styles */
+  .search-icon {
+    margin-left: -40px; /* Negative margin to overlap with input */
+    color: #007bff;
+    cursor: pointer;
+  }
   
   /* Not found message Styles */
   .not-found {
     color: red;
     font-weight: bold;
     margin-bottom: 20px;
-  }
-  
-  /* Place summary Styles */
-  .place-summary {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
   }
   
   /* Place details container Styles */
@@ -65,7 +72,7 @@
     width: 80%;
     max-width: 800px;
     margin-bottom: 20px;
-    background-color: #fff; /* Container background color */
+    background-color: #fff;
     border-radius: 15px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   }
@@ -194,19 +201,17 @@
       padding: 10px;
     }
   
-    header h1 {
+    .sentence h1 {
       font-size: 24px;
     }
   
-    header p {
+    .sentence p {
       font-size: 16px;
     }
   
-    .search-section input {
-      width: 100%;
+    .react-autosuggest__input {
+      width: calc(100% - 40px);
     }
-  
-    /* Removed the Search button styles */
   }
   
   @media (max-width: 600px) {
@@ -214,61 +219,16 @@
       padding: 10px;
     }
   
-    header h1 {
+    .sentence h1 {
       font-size: 20px;
     }
   
-    header p {
+    .sentence p {
       font-size: 14px;
     }
   
-    .search-section input {
-      width: 100%;
+    .react-autosuggest__input {
+      width: calc(100% - 40px);
     }
-  
-    /* Removed the Search button styles */
-  }
-  
-  /* Autosuggest Styles */
-  .react-autosuggest__container {
-    position: relative;
-    width: 100%; /* Adjust the width as needed */
-  }
-  
-  .react-autosuggest__input {
-    width: 100%;
-    padding: 12px;
-    margin-right: 10px;
-    border: 2px solid #007bff;
-    border-radius: 25px;
-    outline: none;
-    font-size: 16px;
-  }
-  
-  .react-autosuggest__suggestions-container {
-    display: none;
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    max-height: 200px; /* Adjust the max-height as needed */
-    overflow-y: auto;
-    border: 1px solid #007bff;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 5;
-  }
-  
-  .react-autosuggest__suggestions-container--open {
-    display: block;
-  }
-  
-  .react-autosuggest__suggestion {
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .react-autosuggest__suggestion--highlighted {
-    background-color: #007bff;
-    color: #fff;
   }
   

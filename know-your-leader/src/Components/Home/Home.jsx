@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Autosuggest from 'react-autosuggest';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 import './Home.css';
 
 const Home = () => {
@@ -23,12 +26,10 @@ const Home = () => {
   }, [location.hash]);
 
   useEffect(() => {
-    // Fetch candidates data from the public folder
     const fetchData = async () => {
       try {
-        const response = await fetch('/candidatesData.json'); // Adjust the path based on your setup
+        const response = await fetch('/candidatesData.json');
         const data = await response.json();
-        // Update state with the fetched data
         setCandidatesData(data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -43,8 +44,8 @@ const Home = () => {
   const handleSearch = () => {
     const formattedQuery = searchQuery.toLowerCase().trim();
 
-    // Search logic
     if (candidatesData) {
+      // Search logic
       const candidateResults = candidatesData.states.flatMap(state =>
         state.districts.flatMap(district =>
           district.constituencies.flatMap(constituency =>
@@ -62,14 +63,12 @@ const Home = () => {
         if (candidateResults.length === 1) {
           setSelectedCandidate(candidateResults[0]);
         } else {
-          setSearchResults(
-            candidateResults.map(candidate => ({
-              constituencyName: '',
-              numberOfVoters: '',
-              seatCategory: '',
-              candidates: [candidate],
-            }))
-          );
+          setSearchResults(candidateResults.map(candidate => ({
+            constituencyName: '',
+            numberOfVoters: '',
+            seatCategory: '',
+            candidates: [candidate],
+          })));
           setSelectedCandidate(null);
         }
 
@@ -79,9 +78,7 @@ const Home = () => {
           state.districts.flatMap(district =>
             district.constituencies.flatMap(constituency => {
               const formattedConstituencyName = constituency.constituencyName.toLowerCase();
-              return formattedConstituencyName.includes(formattedQuery)
-                ? { ...constituency, candidates: constituency.candidates }
-                : [];
+              return formattedConstituencyName.includes(formattedQuery) ? { ...constituency, candidates: constituency.candidates } : [];
             })
           )
         );
@@ -100,7 +97,6 @@ const Home = () => {
       }
     }
 
-    // After updating state, scroll to the first result or the not-found message
     const targetId = searchResults.length > 0 ? searchResults[0].constituencyName : 'not-found';
     const targetElement = document.getElementById(targetId);
 
@@ -115,18 +111,16 @@ const Home = () => {
     setSelectedCandidate(candidate);
   };
 
-  const getSuggestions = (value) => {
+  const getSuggestions = value => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
 
-    return inputLength === 0
-      ? []
-      : candidatesData.states
-          .flatMap((state) => state.districts)
-          .flatMap((district) => district.constituencies)
-          .flatMap((constituency) => constituency.candidates)
-          .filter((candidate) => candidate.name.toLowerCase().includes(inputValue))
-          .map((candidate) => candidate.name);
+    return inputLength === 0 ? [] : candidatesData.states
+      .flatMap(state => state.districts)
+      .flatMap(district => district.constituencies)
+      .flatMap(constituency => constituency.candidates)
+      .filter(candidate => candidate.name.toLowerCase().includes(inputValue))
+      .map(candidate => candidate.name);
   };
 
   const onSuggestionsFetchRequested = ({ value }) => {
@@ -149,80 +143,55 @@ const Home = () => {
 
   return (
     <div className="home-content">
-      <header>
+      <sentence>
         <h1>Your Website Name</h1>
         <p>Engaging tagline or description goes here.</p>
-      </header>
+      </sentence>
       <div className="search-section">
-        <Autosuggest
-          suggestions={suggestions}
-          onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={onSuggestionsClearRequested}
-          onSuggestionSelected={onSuggestionSelected}
-          getSuggestionValue={(suggestion) => suggestion}
-          renderSuggestion={(suggestion) => <div>{suggestion}</div>}
-          inputProps={{
-            ...inputProps,
-            type: 'search',
-            autoComplete: 'off',
-          }}
-        />
-        {/* Removed the Search button */}
+        <div className="search-bar">
+          <Autosuggest
+            suggestions={suggestions}
+            onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+            onSuggestionsClearRequested={onSuggestionsClearRequested}
+            onSuggestionSelected={onSuggestionSelected}
+            getSuggestionValue={suggestion => suggestion}
+            renderSuggestion={suggestion => <div>{suggestion}</div>}
+            inputProps={inputProps}
+          />
+          <FontAwesomeIcon icon={faSearch} className="search-icon" onClick={handleSearch} />
+        </div>
       </div>
-      {notFound && (
-        <p id="not-found" className="not-found">
-          Sorry, not found/unavailable
-        </p>
-      )}
-      {!selectedCandidate && !notFound && (
-        <div className="place-summary">
-          {searchResults.map(
-            ({ constituencyName, TotalVoters, MaleVoters, FemaleVoters, others, seatCategory, candidates }) => (
-              <div key={constituencyName} id={constituencyName} className="place-details">
-                <div className="place-header">
-                  <h3>{constituencyName}</h3>
-                  <p>Total Voters: {TotalVoters}</p>
-                  <p>Male Voters: {MaleVoters}</p>
-                  <p>Female Voters: {FemaleVoters}</p>
-                  <p>Others: {others}</p>
-                  <p>Seat Category: {seatCategory}</p>
-                </div>
+      {notFound && <p className="not-found">No results found.</p>}
+      {searchResults.map((result, index) => (
+        <div key={index} className="place-details-container" id={result.constituencyName.toLowerCase().replace(/\s/g, '-')}>
+          <div className="place-details">
+            <h3>{result.constituencyName}</h3>
+            <p>{`Number of Voters: ${result.numberOfVoters}`}</p>
+            <p>{`Seat Category: ${result.seatCategory}`}</p>
+            {result.candidates && result.candidates.length > 0 && (
+              <>
                 <h4>Contesting Candidates</h4>
                 <table>
                   <thead>
                     <tr>
-                      <th>Photo</th>
-                      <th>Name</th>
+                      <th>Candidate</th>
                       <th>Party</th>
-                      <th>View Full Info</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {candidates &&
-                      candidates.map(({ id, photo, name, party, partySymbol }) => (
-                        <tr key={`${id}-${name}`}>
-                          <td>
-                            <img src={photo} alt={name} className="candidate-image" />
-                          </td>
-                          <td>{name}</td>
-                          <td>
-                            <div className="party-info">
-                              <img src={partySymbol} alt={party} className="party-symbol" />
-                              <p>{party}</p>
-                            </div>
-                          </td>
-                          <td>
-                            <button onClick={() => handleCandidateClick(id)}>View</button>
-                          </td>
-                        </tr>
-                      ))}
+                    {result.candidates.map(candidate => (
+                      <tr key={candidate.id} onClick={() => handleCandidateClick(candidate.id)}>
+                        <td>{candidate.name}</td>
+                        <td>{candidate.party}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
-              </div>
-            )
-          )}
+              </>
+            )}
+          </div>
         </div>
-      )}
+      ))}
       {selectedCandidate && (
         <div className="candidate-details">
           <img src={selectedCandidate.photo} alt={selectedCandidate.name} className="candidate-image" />
