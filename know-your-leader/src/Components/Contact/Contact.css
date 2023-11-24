@@ -1,0 +1,159 @@
+/* Contact.css */
+
+/* Define colors as variables for consistency and easier modifications */
+:root {
+    --blue: #007bff;
+    --darkBlue: #125688;
+    --maroon: #ff6f61;
+    --darkMaroon: #d9322c;
+    --black: #000;
+    --gray: #333;
+    --red: #ff0000;
+    --darkRed: #cc0000;
+    --green: #4caf50;
+    --white: #fff;
+}
+
+.contact-section {
+    padding: 80px 0;
+    background-color: #f5f5f5;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.get-in-touch {
+    flex: 1;
+    max-width: 300px;
+    text-align: center;
+}
+
+.get-in-touch h5 {
+    color: var(--blue);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact__socials {
+    display: flex;
+    justify-content: space-around;
+    font-size: 24px;
+}
+
+.contact__socials a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Facebook Icon - Blue */
+.contact__socials a.facebook {
+    color: var(--blue);
+}
+
+.contact__socials a.facebook:hover {
+    color: var(--darkBlue);
+}
+
+/* Instagram Icon - Maroon/Orange */
+.contact__socials a.instagram {
+    color: var(--maroon);
+}
+
+.contact__socials a.instagram:hover {
+    color: var(--darkMaroon);
+}
+
+/* Twitter Icon - Black */
+.contact__socials a.twitter {
+    color: var(--black);
+}
+
+.contact__socials a.twitter:hover {
+    color: var(--gray);
+}
+
+/* YouTube Icon - Red */
+.contact__socials a.youtube {
+    color: var(--red);
+}
+
+.contact__socials a.youtube:hover {
+    color: var(--darkRed);
+}
+
+.contact-form {
+    flex: 1;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.popup-message {
+    background-color: var(--green);
+    color: var(--white);
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.popup-message p {
+    margin: 0;
+}
+
+.contact-form h4 {
+    color: var(--blue);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.contact-form button {
+    padding: 12px 18px;
+    border: none;
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: var(--darkBlue);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .get-in-touch,
+    .contact-form {
+        max-width: 100%;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        margin-bottom: 15px;
+    }
+}
