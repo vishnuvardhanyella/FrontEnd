@@ -1659,9 +1659,9 @@
 "constituencies": [
 {
 "constituencyName": "Armur",
-"TotalVoters": 2,06,344,
-"MaleVoters" :96,404,
-"FemaleVoters":1,09,933,
+"TotalVoters": 206344,
+"MaleVoters" :96404,
+"FemaleVoters":109933,
 "others":7,
 "seatCategory": "General",
 "candidates": [
@@ -1677,8 +1677,8 @@
 "criminalCases": "zero",
 "assets": "Rs. 89,93,242, & 112.00Lakhs(Inherited Assets) ",
 "liabilities": "Zero"
-}
-// Add more candidates if necessary
+},
+
 {
 "id": 36,
 "name": "Rraavi Srinwass",
@@ -1691,7 +1691,7 @@
 "criminalCases": "pending 11,convicted 0",
 "assets": "Rs. 31,00,000 ",
 "liabilities": "Zero"
-}
+},
 {
 "id": 37,
 "name": "Dr. Palvai Harish Babu",
@@ -1705,15 +1705,15 @@
 "assets": "Rs. 4,19,50,000 ",
 "liabilities": "Rs. 16,00,000"
 }
-// Add more candidates if necessary
-// Add more candidates if necessary
+
+
 ]
-}
+},
 {
 "constituencyName": "Bodhan",
-"TotalVoters": 2, 15,963,
-"MaleVoters" :1,03,577,
-"FemaleVoters":1,12,381,
+"TotalVoters": 215963,
+"MaleVoters" :103577,
+"FemaleVoters":112381,
 "others":5,
 "seatCategory": "General",
 "candidates": [
@@ -3063,7 +3063,7 @@
           "assets": "Rs. 181,66,786 ",
           "liabilities": "Rs. 96,66,241"
           }
-          // Add more candidates if necessary
+        
          
           ]
           },
@@ -5189,5 +5189,5 @@
       ]
     }
   ]
-},
+}
 
