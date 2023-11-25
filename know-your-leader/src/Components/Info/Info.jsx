@@ -34,7 +34,7 @@ const Info = () => {
 
   return (
     <div className="info-container">
-      <h2 className="info-heading">Frequently Asked Questions</h2>
+      <h2 className="info-heading">Useful Information</h2>
       <div className="info-content">
         {questions.map((item, index) => (
           <div className="question" key={index}>
