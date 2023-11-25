@@ -15,9 +15,13 @@ const BottomNavBar = () => {
       <NavLink to="/about" activeclassname="active" className={location.pathname === '/about' && 'active'}>
         <i className="material-icons">About</i>
       </NavLink>
+      <NavLink to="/info" activeclassname="active" className={location.pathname === '/info' && 'active'}>
+        <i className="material-icons">Info</i>
+      </NavLink>
       <NavLink to="/contact" activeclassname="active" className={location.pathname === '/contact' && 'active'}>
         <i className="material-icons">Contact</i>
       </NavLink>
+      
     </footer>
   );
 };

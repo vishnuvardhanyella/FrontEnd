@@ -8,10 +8,10 @@
           "constituencies": [
             {
               "constituencyName": "Kamareddy",
-              "TotalVoters": "222973",
-              "MaleVoters" :"111924",
-              "FemaleVoters":"111039",
-              "others":"10",
+              "TotalVoters": 222973,
+              "MaleVoters" :111924,
+              "FemaleVoters":111039,
+              "others":10,
               "seatCategory": "General",
               "candidates": [
                 {
@@ -46,7 +46,7 @@
                   "age": "53",
                   "photo": "katipally.jpeg",
                   "party": "Bharatiya Janata Party(BJP)",
-                  "partySymbol": "bjp party symbol.jpg",
+                  "partySymbol": "bjp party symbol.png",
                   "education": "Intermediate(M.P.C)",
                   "profession": "Business",
                   "criminalCases": "11 cases & 0 convicted",

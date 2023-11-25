@@ -79,7 +79,7 @@ const Header = () => {
     setDisableHoverEffect(true);
   };
 
-  const scrollingSentence = 'Your scrolling sentence goes here';
+  const scrollingSentence = 'Dont Get Influenced,Choose Your LEADER Wisely';
 
   return (
     <header className="header-container">

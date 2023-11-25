@@ -1,38 +1,36 @@
-/* BottomNavBar.css */
 
 /* Bottom Navigation Bar Styles */
 footer {
-    background-color: white;
-    width: max-content;
-    display: block;
-    padding: 0.7rem 1.7rem;
-    z-index: 2;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 2rem;
-    display: flex;
-    gap: 0.8rem;
-    border-radius: 3rem;
-    backdrop-filter: blur(15px);
-  }
-  
-  footer a {
-    background: transparent;
-    padding: 0.9rem;
-    border-radius: 50%;
-    display: flex;
-    color: var(--color-light);
-    font-size: 1.1rem;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-  
-  footer a:hover {
-    background: rgba(0, 0, 0, 0.3);
-  }
-  
-  footer a.active {
-    background: var(--color-primary);
-    color: var(--color-bg);
-  }
-  
+  background-color: #fff; /* Classic white background */
+  width: max-content;
+  display: block;
+  padding: 0.5rem 1.7rem; /* Reduced padding */
+  z-index: 2;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0.5rem; /* Positioned lower */
+  display: flex;
+  gap: 0.8rem;
+  border-radius: 3rem;
+  backdrop-filter: blur(15px);
+}
+
+footer a {
+  background: transparent;
+  padding: 0.8rem;
+  border-radius: 50%;
+  display: flex;
+  color: #333; /* Font color */
+  font-size: 0.9rem; /* Slightly smaller font size */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+footer a:hover {
+  background: rgba(0, 0, 0, 0.1); /* Slight hover effect */
+}
+
+footer a.active {
+  background: #007bff; /* Update to your desired active background color */
+  color: #fff; /* Update to your desired active text color */
+}

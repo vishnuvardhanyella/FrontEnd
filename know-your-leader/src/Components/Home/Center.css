@@ -1,0 +1,173 @@
+/* General styles */
+.center {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.sentence {
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Search section */
+.search-section {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.autosuggest {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.autosuggest input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+
+.autosuggest button {
+  width: 80px;
+  padding: 10px 20px;
+  margin-left: -1px;
+  border: none;
+  border-radius: 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Not found message */
+.not-found {
+  color: red;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+/* Place details container */
+.place-details-container {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+  text-align: center;
+}
+
+.place-name {
+  font-size: 24px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.place-summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 600px;
+}
+
+.place-stats,
+.summary-table {
+  flex: 1;
+  margin: 0 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.place-stats h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.summary-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.summary-table th,
+.summary-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Candidate details */
+.candidate-details {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+  text-align: center;
+}
+
+.party-info img {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+}
+
+.party-info p {
+  margin: 0;
+  color: #444;
+}
+
+.party-symbol {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.candidate-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Font colors for criminal cases, assets, and liabilities */
+.candidate-details p:nth-child(6) { /* Criminal Cases */
+  color: #FF6347; /* Red color for criminal cases */
+}
+
+.candidate-details p:nth-child(7) { /* Assets */
+  color: #007bff; /* Blue color for assets */
+}
+
+.candidate-details p:nth-child(8) { /* Liabilities */
+  color: #555; /* Thick grey color for liabilities */
+}
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 20px;
+  font-style: italic;
+  color: #888;
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+  .autosuggest input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .place-details-container,
+  .candidate-details {
+    width: 100%;
+    max-width: 600px;
+  }
+}
